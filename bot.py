@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import yt_dlp  # Changed import
+import yt_dlp  
 import asyncio
 import os
 from dotenv import load_dotenv
@@ -96,8 +96,7 @@ async def play(ctx, *, query):
     if guild_id not in music_queue:
         music_queue[guild_id] = []
 
-    if discord.utils.get(bot.voice_clients, guild=ctx.guild) and discord.utils.get(bot.voice_clients,
-                                                                                      guild=ctx.guild).is_playing():
+    if discord.utils.get(bot.voice_clients, guild=ctx.guild) and discord.utils.get(bot.voice_clients,guild=ctx.guild).is_playing():
         music_queue[guild_id].append(query)
         await ctx.send("Added to queue!")
     else:
